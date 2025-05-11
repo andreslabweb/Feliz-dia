@@ -1,0 +1,385 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    animation: gradientBackground 10s infinite alternate;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+    }
+    50% {
+        background: linear-gradient(135deg, #ffcccc, #ff9999);
+    }
+    100% {
+        background: linear-gradient(135deg, #ff9999, #ff4d4d);
+    }
+}
+
+.heart {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background: linear-gradient(135deg, #ff4d4d, #ff6666);
+    transform: rotate(-45deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -100px;
+    left: 0;
+}
+
+.heart::after {
+    left: 100px;
+    top: 0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: fadeIn 2s ease-in-out, float 4s infinite ease-in-out;
+    position: relative;
+}
+
+.message h1 {
+    font-size: 40px;
+    color: #ff4d4d;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: textGlow 2s infinite alternate;
+}
+
+.message p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 3px 3px 6px rgba(255, 77, 77, 0.5);
+    }
+    100% {
+        text-shadow: 5px 5px 10px rgba(255, 77, 77, 0.8);
+    }
+}
+
+.signature {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #555;
+    animation: fadeIn 3s ease-in-out;
+    position: relative;
+}
+
+.signature p {
+    margin: 5px 0;
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #777;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 5s ease-in-out;
+}
+
+footer a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+    animation: textGlow 2s infinite alternate;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #ff3333;
+}
+
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sparkles span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Estilos adicionales para la carta */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+    overflow: hidden;
+    animation: backgroundPulse 5s infinite alternate;
+}
+
+@keyframes backgroundPulse {
+    0% {
+        background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+    }
+    50% {
+        background: linear-gradient(135deg, #ffcccc, #ff9999);
+    }
+    100% {
+        background: linear-gradient(135deg, #ff9999, #ff4d4d);
+    }
+}
+
+.card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 1s ease-in-out, box-shadow 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: perspective(1000px) rotateY(180deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.card .front {
+    background: linear-gradient(135deg, #ff4d4d, #ff6666);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card .back {
+    background: linear-gradient(135deg, #fff, #ffe6e6);
+    color: #333;
+    transform: rotateY(180deg);
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 3px dashed #ff4d4d;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card .back::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 77, 77, 0.1);
+    z-index: 1;
+    pointer-events: none;
+    animation: shimmer 3s infinite;
+}
+
+.card .back h2 {
+    font-size: 24px;
+    color: #ff4d4d;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    position: relative;
+}
+
+.card .back p {
+    z-index: 2;
+    position: relative;
+}
+
+.card .back .decorative {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 77, 77, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    animation: float 4s infinite ease-in-out;
+}
+
+.card .back .decorative:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.card .back .decorative:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.card .back .decorative:nth-child(3) {
+    bottom: 20%;
+    left: 25%;
+    animation-delay: 2s;
+}
+
+@keyframes shimmer {
+    0% {
+        background: rgba(255, 77, 77, 0.1);
+    }
+    50% {
+        background: rgba(255, 77, 77, 0.2);
+    }
+    100% {
+        background: rgba(255, 77, 77, 0.1);
+    }
+}
+.card .back .decorative:nth-child(1) {
+    animation: float 4s infinite ease-in-out;
+}
+
+/* Additional styles for the card message */
+.card .back .message {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    z-index: 2;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.card .back .message h2 {
+    font-size: 20px;
+    color: #ff4d4d;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card .back .message p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4d4d, #ff6666);
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #ff3333, #ff4d4d);
+    transform: translateY(-3px);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
